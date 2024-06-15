@@ -29,8 +29,17 @@ class model:
 
     def predict_window(self, window):
         window = img(self.standard_size, window=window)
+        
         window.preprocess()
-        return self.classifier.predict(window.data)
+        
+        return self.classifier.predict([window.data])
+    
+    def predict_proba_window(self, window):
+        window = img(self.standard_size, window=window)
+        
+        window.preprocess()
+        
+        return self.classifier.predict_proba([window.data])
 
     def train_svm(self, train_data, max_iter=1000, verbose=0):
         self.name = "SVM"

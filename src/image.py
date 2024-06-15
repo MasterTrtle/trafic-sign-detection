@@ -77,7 +77,7 @@ class img:
 
     def preprocess(self):
         try:
-            if not self.window:
+            if  self.window is None:
                 img = cv2.imread(self.path + self.name)
             else:
                 img = self.window
